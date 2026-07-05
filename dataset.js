@@ -1,0 +1,128 @@
+// Expanded Recommendation Datasets: 25 Movies, 25 Books, 25 Products with 8 Neighbor Profiles each
+window.REC_DATASETS = {
+  movies: {
+    title: "Movies",
+    description: "Suggests films based on genre profiles (Jaccard content index) and user rating patterns.",
+    items: [
+      { id: "m-1", title: "Inception", categories: ["Sci-Fi", "Thriller", "Action"], year: 2010, desc: "A thief who steals corporate secrets through the use of dream-sharing technology." },
+      { id: "m-2", title: "The Dark Knight", categories: ["Action", "Crime", "Thriller"], year: 2008, desc: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham." },
+      { id: "m-3", title: "The Notebook", categories: ["Romance", "Drama"], year: 2004, desc: "A poor young man and a rich young woman fall in love, but are separated by social differences." },
+      { id: "m-4", title: "Interstellar", categories: ["Sci-Fi", "Adventure", "Drama"], year: 2014, desc: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival." },
+      { id: "m-5", title: "Superbad", categories: ["Comedy"], year: 2007, desc: "Two co-dependent high school seniors are forced to deal with separation anxiety." },
+      { id: "m-6", title: "The Matrix", categories: ["Sci-Fi", "Action"], year: 1999, desc: "A computer hacker learns from mysterious rebels about the true nature of his reality." },
+      { id: "m-7", title: "La La Land", categories: ["Romance", "Drama", "Musical"], year: 2016, desc: "While navigating their careers in Los Angeles, a pianist and an actress fall in love." },
+      { id: "m-8", title: "Avatar", categories: ["Sci-Fi", "Action", "Adventure"], year: 2009, desc: "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn." },
+      { id: "m-9", title: "The Conjuring", categories: ["Horror", "Thriller"], year: 2013, desc: "Paranormal investigators work to help a family terrorized by a dark presence." },
+      { id: "m-10", title: "Pulp Fiction", categories: ["Crime", "Thriller"], year: 1994, desc: "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine." },
+      { id: "m-11", title: "Pride & Prejudice", categories: ["Romance", "Drama"], year: 2005, desc: "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy." },
+      { id: "m-12", title: "Gladiator", categories: ["Action", "Adventure", "Drama"], year: 2000, desc: "A former Roman General sets out to exact vengeance against the corrupt emperor." },
+      { id: "m-13", title: "Spirited Away", categories: ["Animation", "Fantasy", "Family"], year: 2001, desc: "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods." },
+      { id: "m-14", title: "The Godfather", categories: ["Crime", "Drama"], year: 1972, desc: "The aging patriarch of an organized crime dynasty transfers control of his empire to his reluctant son." },
+      { id: "m-15", title: "The Lord of the Rings: Fellowship", categories: ["Fantasy", "Adventure", "Epic"], year: 2001, desc: "A meek Hobbit and eight companions set out on a journey to destroy the One Ring." },
+      { id: "m-16", title: "Forrest Gump", categories: ["Drama", "Romance", "Comedy"], year: 1994, desc: "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man." },
+      { id: "m-17", title: "Get Out", categories: ["Horror", "Thriller", "Mystery"], year: 2017, desc: "A young African-American visits his white girlfriend's parents for the weekend, discovering dark secrets." },
+      { id: "m-18", title: "The Hangover", categories: ["Comedy"], year: 2009, desc: "Three buddies wake up from a bachelor party in Las Vegas with no memory, and the groom is missing." },
+      { id: "m-19", title: "Blade Runner 2049", categories: ["Sci-Fi", "Thriller", "Action"], year: 2017, desc: "A new blade runner unearths a long-buried secret that could plunge what's left of society into chaos." },
+      { id: "m-20", title: "Parasite", categories: ["Thriller", "Drama", "Comedy"], year: 2019, desc: "Greed and class discrimination threaten the newly formed symbiotic relationship between two households." },
+      { id: "m-21", title: "The Lion King", categories: ["Animation", "Adventure", "Family"], year: 1994, desc: "A young lion cub Simba flees his kingdom after his father is murdered, learning responsibility." },
+      { id: "m-22", title: "Whiplash", categories: ["Drama", "Musical"], year: 2014, desc: "A promising young drummer enrolls at a cut-throat music conservatory where his dreams are pushed." },
+      { id: "m-23", title: "Good Will Hunting", categories: ["Drama", "Romance"], year: 1997, desc: "Will Hunting, a janitor at MIT, has a gift for mathematics, but needs help from a psychologist." },
+      { id: "m-24", title: "Die Hard", categories: ["Action", "Thriller"], year: 1888, desc: "An NYPD officer tries to save his wife and several others taken hostage by German terrorists." },
+      { id: "m-25", title: "Titanic", categories: ["Romance", "Drama"], year: 1997, desc: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious R.M.S. Titanic." }
+    ],
+    users: [
+      { name: "Alice (Action Fan)", ratings: { "m-1": 5, "m-2": 5, "m-3": 1, "m-4": 4, "m-5": 2, "m-6": 5, "m-7": 1, "m-8": 4, "m-12": 5, "m-14": 4, "m-15": 4, "m-19": 5, "m-24": 5 } },
+      { name: "Bob (Rom-Com Lover)", ratings: { "m-1": 2, "m-2": 1, "m-3": 5, "m-5": 4, "m-7": 5, "m-11": 5, "m-16": 5, "m-18": 4, "m-23": 4, "m-25": 5 } },
+      { name: "Charlie (Sci-Fi Buff)", ratings: { "m-1": 5, "m-2": 4, "m-4": 5, "m-6": 5, "m-8": 5, "m-10": 3, "m-13": 4, "m-15": 5, "m-19": 5 } },
+      { name: "Diana (Horror/Thriller)", ratings: { "m-1": 4, "m-2": 4, "m-4": 3, "m-9": 5, "m-10": 5, "m-17": 5, "m-20": 5, "m-24": 4 } },
+      { name: "Ethan (Drama Purist)", ratings: { "m-3": 4, "m-4": 4, "m-7": 4, "m-11": 4, "m-12": 4, "m-14": 5, "m-16": 4, "m-20": 5, "m-22": 5, "m-23": 5 } },
+      { name: "Fiona (Family/Animation)", ratings: { "m-5": 3, "m-13": 5, "m-15": 5, "m-16": 4, "m-21": 5 } },
+      { name: "George (Comedy Seeker)", ratings: { "m-5": 5, "m-10": 4, "m-16": 4, "m-18": 5, "m-20": 4 } },
+      { name: "Hannah (Mainstream Moviegoer)", ratings: { "m-1": 4, "m-2": 5, "m-3": 4, "m-8": 4, "m-15": 4, "m-16": 5, "m-21": 4, "m-25": 5 } }
+    ]
+  },
+  
+  books: {
+    title: "Books",
+    description: "Recommends literature using thematic tags (Jaccard content overlap) and rating history lists.",
+    items: [
+      { id: "b-1", title: "Dune", categories: ["Sci-Fi", "Adventure", "Epic"], year: 1965, desc: "Set in the far future, a desert planet holds the key to the ultimate spice of life." },
+      { id: "b-2", title: "The Adventures of Sherlock Holmes", categories: ["Mystery", "Crime", "Classic"], year: 1892, desc: "A collection of twelve detective stories featuring famous sleuth Sherlock Holmes." },
+      { id: "b-3", title: "Pride and Prejudice", categories: ["Classic", "Romance", "Drama"], year: 1813, desc: "A classic romance novel depicting manners, upbringing, and marriage issues." },
+      { id: "b-4", title: "The Hobbit", categories: ["Fantasy", "Adventure", "Epic"], year: 1937, desc: "Bilbo Baggins, a hobbit, journeys to win a share of the treasure guarded by Smaug." },
+      { id: "b-5", title: "Steve Jobs Biography", categories: ["Biography", "Tech", "Business"], year: 2011, desc: "The definitive biography of Apple co-founder Steve Jobs by Walter Isaacson." },
+      { id: "b-6", title: "Neuromancer", categories: ["Sci-Fi", "Cyberpunk", "Tech"], year: 1984, desc: "A washed-up computer hacker is hired for one last job in a dystopian cyberpunk world." },
+      { id: "b-7", title: "The Great Gatsby", categories: ["Classic", "Drama"], year: 1925, desc: "A story of high society, obsession, and the American dream set in Long Island." },
+      { id: "b-8", title: "Harry Potter & the Sorcerer's Stone", categories: ["Fantasy", "Adventure", "YA"], year: 1997, desc: "A young wizard discovers his magical heritage and enters Hogwarts School." },
+      { id: "b-9", title: "Gone Girl", categories: ["Mystery", "Thriller", "Crime"], year: 2012, desc: "A psychological thriller about the mysterious disappearance of Amy Dunne." },
+      { id: "b-10", title: "Elon Musk Biography", categories: ["Biography", "Tech", "Space"], year: 2015, desc: "A look into the ambitious life of the CEO of SpaceX and Tesla." },
+      { id: "b-11", title: "1984", categories: ["Sci-Fi", "Dystopian", "Classic"], year: 1949, desc: "A dystopian social science fiction novel about a regime that controls speech and thought." },
+      { id: "b-12", title: "To Kill a Mockingbird", categories: ["Classic", "Drama"], year: 1960, desc: "A warm and humorous story dealing with racial injustice and childhood growth." },
+      { id: "b-13", title: "Sapiens: A Brief History of Humankind", categories: ["History", "Non-Fiction", "Science"], year: 2011, desc: "An investigation into how Homo sapiens came to dominate the Earth." },
+      { id: "b-14", title: "The Silent Patient", categories: ["Mystery", "Thriller", "Psychological"], year: 2019, desc: "A shocking psychological thriller about a woman's act of violence against her husband." },
+      { id: "b-15", title: "Educated", categories: ["Biography", "Memoir", "Drama"], year: 2018, desc: "A memoir about a young woman who leaves her survivalist family to earn a PhD." },
+      { id: "b-16", title: "Foundation", categories: ["Sci-Fi", "Epic", "Classic"], year: 1951, desc: "A band of scientists attempts to preserve civilization from galactic collapse." },
+      { id: "b-17", title: "Circe", categories: ["Fantasy", "Mythology", "Fiction"], year: 2018, desc: "A bold retelling of the story of Circe, the strange witch-daughter of Helios." },
+      { id: "b-18", title: "A Game of Thrones", categories: ["Fantasy", "Epic", "Adventure"], year: 1996, desc: "The first book in George R.R. Martin's epic fantasy saga of political intrigues." },
+      { id: "b-19", title: "The Da Vinci Code", categories: ["Mystery", "Thriller", "Adventure"], year: 2003, desc: "A murder in the Louvre leads to a quest for a religious mystery protected by a secret society." },
+      { id: "b-20", title: "Becoming", categories: ["Biography", "Memoir", "Politics"], year: 2018, desc: "An intimate and powerful memoir by the former First Lady of the United States." },
+      { id: "b-21", title: "The Catcher in the Rye", categories: ["Classic", "Fiction", "YA"], year: 1951, desc: "Holden Caulfield's cynical reflections on childhood, society, and fake people." },
+      { id: "b-22", title: "Brave New World", categories: ["Sci-Fi", "Dystopian", "Classic"], year: 1932, desc: "A futuristic society governed by conditioning, consumerism, and social hierarchy." },
+      { id: "b-23", title: "Atomic Habits", categories: ["Self-Help", "Business", "Psychological"], year: 2018, desc: "An easy and proven way to build good habits and break bad ones." },
+      { id: "b-24", title: "Thinking, Fast and Slow", categories: ["Science", "Non-Fiction", "Psychological"], year: 2011, desc: "Daniel Kahneman explains the two systems that drive the way we think." },
+      { id: "b-25", title: "Normal People", categories: ["Fiction", "Romance", "Drama"], year: 2018, desc: "Follows the complicated relationship of two young adults from school into university." }
+    ],
+    users: [
+      { name: "Frank (Tech Nerd)", ratings: { "b-1": 4, "b-5": 5, "b-6": 5, "b-10": 5, "b-13": 4, "b-23": 4, "b-24": 4 } },
+      { name: "Grace (Fiction Fan)", ratings: { "b-3": 4, "b-4": 5, "b-7": 4, "b-8": 5, "b-12": 5, "b-17": 5, "b-18": 4, "b-25": 5 } },
+      { name: "Henry (Mystery Fan)", ratings: { "b-2": 5, "b-6": 2, "b-9": 5, "b-14": 5, "b-19": 4 } },
+      { name: "Ivy (Classic Critic)", ratings: { "b-2": 4, "b-3": 5, "b-7": 4, "b-8": 3, "b-11": 5, "b-12": 5, "b-21": 4, "b-22": 4 } },
+      { name: "Jack (Sci-Fi Fanatic)", ratings: { "b-1": 5, "b-4": 4, "b-5": 3, "b-6": 5, "b-10": 4, "b-11": 5, "b-16": 5, "b-22": 5 } },
+      { name: "Karen (Biography Fan)", ratings: { "b-5": 4, "b-10": 4, "b-13": 5, "b-15": 5, "b-20": 5 } },
+      { name: "Leo (Fantasy Buff)", ratings: { "b-4": 5, "b-8": 5, "b-17": 4, "b-18": 5 } },
+      { name: "Mona (Science Seeker)", ratings: { "b-5": 3, "b-10": 3, "b-13": 5, "b-23": 5, "b-24": 5 } }
+    ]
+  },
+
+  products: {
+    title: "Products",
+    description: "Recommends e-commerce assets using product category tags and matching purchase vectors.",
+    items: [
+      { id: "p-1", title: "Wireless Noise-Canceling Headphones", categories: ["Electronics", "Audio", "Travel"], year: 2023, desc: "Over-ear bluetooth headphones with active noise cancellation." },
+      { id: "p-2", title: "Ultra Running Trail Shoes", categories: ["Apparel", "Fitness", "Outdoor"], year: 2022, desc: "Durable cross-country running footwear with specialized grip." },
+      { id: "p-3", title: "GPS Smart Fitness Watch", categories: ["Electronics", "Wearable", "Fitness"], year: 2023, desc: "A smart wristwatch tracking heartbeat, steps, and satellite maps." },
+      { id: "p-4", title: "RGB Mechanical Keyboard", categories: ["Electronics", "Computer Accessories"], year: 2022, desc: "Tactile mechanical keyboard with customized key switches." },
+      { id: "p-5", title: "Espresso Coffee Machine", categories: ["Kitchen", "Appliances"], year: 2021, desc: "15-bar pump espresso maker with dynamic milk frother." },
+      { id: "p-6", title: "RFID Leather Wallet", categories: ["Apparel", "Accessories"], year: 2023, desc: "Genuine leather bi-fold wallet protecting digital cards." },
+      { id: "p-7", title: "Insulated Sports Water Bottle", categories: ["Fitness", "Outdoor", "Accessories"], year: 2022, desc: "Stainless steel vacuum insulated flask keeping drinks cold." },
+      { id: "p-8", title: "Eco-Friendly Yoga Mat", categories: ["Fitness", "Accessories"], year: 2023, desc: "Non-slip yoga mat made of biodegradable tree rubber." },
+      { id: "p-9", title: "Chef's Kitchen Knife", categories: ["Kitchen", "Accessories"], year: 2022, desc: "8-inch premium high-carbon stainless steel chopping knife." },
+      { id: "p-10", title: "Ergonomic Office Mesh Chair", categories: ["Furniture", "Office"], year: 2023, desc: "High-back desk seat with adjustable lumbar and arm supports." },
+      { id: "p-11", title: "4K Ultra HD Smart TV", categories: ["Electronics", "Home Entertainment"], year: 2022, desc: "65-inch high-dynamic range smart television with assistant controls." },
+      { id: "p-12", title: "Dual Air Fryer", categories: ["Kitchen", "Appliances"], year: 2022, desc: "8-quart capacity double basket air frying convection oven." },
+      { id: "p-13", title: "Memory Foam Sleeping Pillows", categories: ["Home", "Furniture"], year: 2023, desc: "Orthopedic neck support bed pillow for side and back sleepers." },
+      { id: "p-14", title: "Adjustable Dumbbells Set", categories: ["Fitness", "Workout", "Strength"], year: 2021, desc: "All-in-one steel dumbbells adjusting weights up to 52.5 lbs." },
+      { id: "p-15", title: "Waterproof Hiking Backpack", categories: ["Outdoor", "Travel", "Accessories"], year: 2022, desc: "50-liter heavy-duty survival gear bag with rain cover." },
+      { id: "p-16", title: "USB-C Laptop Docking Station", categories: ["Electronics", "Computer Accessories"], year: 2023, desc: "12-port expansion adapter powering dual monitors and hard drives." },
+      { id: "p-17", title: "Sonic Electric Toothbrush", categories: ["Personal Care", "Appliances"], year: 2022, desc: "Rechargeable electric brush with 5 brushing speed settings." },
+      { id: "p-18", title: "Non-Stick Ceramic Frying Pan", categories: ["Kitchen", "Cookware"], year: 2023, desc: "Healthy chemical-free ceramic nonstick skillet pan." },
+      { id: "p-19", title: "Fleece Waterproof Trail Jacket", categories: ["Apparel", "Outdoor", "Fitness"], year: 2022, desc: "Thermal weather-resistant outer layer coat for hiking." },
+      { id: "p-20", title: "Essential Oil Diffuser", categories: ["Home", "Personal Care"], year: 2023, desc: "Aromatherapy ultrasonic mist humidifier with color lights." },
+      { id: "p-21", title: "Blue-Light Blocking Glasses", categories: ["Accessories", "Computer Accessories"], year: 2022, desc: "Protective gaming eyewear reduces fatigue from screens." },
+      { id: "p-22", title: "Resistance Training Loops Set", categories: ["Fitness", "Workout"], year: 2023, desc: "Natural latex workout bands of five custom resistance levels." },
+      { id: "p-23", title: "Standing Desk Converter Desk", categories: ["Furniture", "Office"], year: 2022, desc: "Height-adjustable workstation desktop riser frame." },
+      { id: "p-24", title: "Pour Over Coffee Kettle", categories: ["Kitchen", "Accessories"], year: 2023, desc: "Gooseneck thermometer kettle for precise coffee brewing." },
+      { id: "p-25", title: "Bluetooth Portable Speaker", categories: ["Electronics", "Audio", "Outdoor"], year: 2023, desc: "Waterproof shockproof wireless speaker with deep bass." }
+    ],
+    users: [
+      { name: "Kate (Office Pro)", ratings: { "p-1": 4, "p-4": 5, "p-6": 4, "p-10": 5, "p-13": 4, "p-16": 5, "p-21": 4, "p-23": 5 } },
+      { name: "Liam (Athlete)", ratings: { "p-2": 5, "p-3": 5, "p-7": 4, "p-8": 4, "p-14": 5, "p-15": 4, "p-19": 4, "p-22": 5 } },
+      { name: "Mia (Gourmet Cook)", ratings: { "p-5": 5, "p-9": 5, "p-12": 5, "p-18": 4, "p-24": 5 } },
+      { name: "Noah (Tech Geek)", ratings: { "p-1": 5, "p-3": 4, "p-4": 5, "p-11": 4, "p-16": 5, "p-25": 4 } },
+      { name: "Olivia (Casual Shopper)", ratings: { "p-1": 3, "p-6": 5, "p-7": 4, "p-13": 5, "p-20": 5 } },
+      { name: "Peter (Outdoor Adventurer)", ratings: { "p-2": 4, "p-7": 5, "p-15": 5, "p-19": 5, "p-25": 4 } },
+      { name: "Quinn (Home & Cozy)", ratings: { "p-5": 4, "p-10": 4, "p-13": 5, "p-20": 5, "p-23": 4 } },
+      { name: "Ruby (Audio Lover)", ratings: { "p-1": 5, "p-11": 5, "p-25": 5 } }
+    ]
+  }
+};
